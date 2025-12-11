@@ -2,6 +2,8 @@
 
 const express = require('express')
 const server = express()
+//connect your router.js
+const router = require('./routes/router')
 const PORT = process.env.PORT || 3000
 
 
@@ -23,6 +25,9 @@ server.use(helmet.contentSecurityPolicy({
 server.use(cors())
 server.use(express.json())
 server.use(express.urlencoded({ extended: true}))
+
+
+server.use('/', router)
 
 
 
